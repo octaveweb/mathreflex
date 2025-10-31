@@ -101,12 +101,12 @@ main .wrong {
   font-family: "Outfit", sans-serif;
   color: #f4f2ed;
 }
-#game-paly .btn-container {
+#game-paly #btn-container {
   display: flex;
   gap: 1rem;
   padding: 2rem 0;
 }
-#game-paly .btn-container .btn {
+#game-paly #btn-container .btn {
   height: 8rem;
   width: 8rem;
   display: flex;
@@ -121,10 +121,10 @@ main .wrong {
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-#game-paly .btn-container .btn:hover {
+#game-paly #btn-container .btn:hover {
   border: 1px solid #4169e1;
   transform: scale(1.02);
 }
-#game-paly .btn-container .btn:active {
+#game-paly #btn-container .btn:active {
   border: 2px solid #6b6b6b;
 }/*# sourceMappingURL=style.css.map */
