@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .5s cubic-bezier(.7, 0, .3, 1);
+}
+
+$bg-color: #121212;
+$bg-color2: #1d1d1d;
+$bg-color3: #1e1e1e;
+$color: #4169e1;
+
+$font-1: "Share Tech", sans-serif;
+$font-2: "Bebas Neue", sans-serif;
+$font-3:  "Outfit", sans-serif;
+
+$text: #f4f2ed;
+$textDark: #1a1a1a;
+
+html,
+body{
+    height: 100%;
+    width: 100%;
+    background-color: $bg-color2;
+
+    
+}
+body{
+    user-select: none;
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none;    /* For Firefox */
+    -ms-user-select: none;     /* For IE 10+ */
+}
+main{
+    #name{
+        font-size: 1rem;
+        font-family: $font-1;
+        display: block;
+    }
+}
+main{
+    .titel{
+        font-size: 1.5rem;
+        font-family: $font-2;
+    }
+    .progress-bar{
+        height: .5rem;
+        width: 100%;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+    .count-of-qustion{
+        display: flex;
+        
+        
+    }
+    .right{
+        height: 100%;
+        width: 100%;
+        background-color: #008000;
+        border: none
+    }
+    .wrong{
+        height: 100%;
+        width: 100%;
+        background-color: #a50000;
+        border:none;
+    }
+}
+
+#game-paly{
+    padding:  0 3rem ;
+    header{
+        margin-bottom: 2rem;
+        nav{
+            padding: 3rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: $text;
+          h2{
+            font-family: $font-3;
+          }
+           p{
+                font-size: 1.2rem;
+                font-family: $font-2;
+            }
+        }
+    }
+    .qustion-container{
+        margin-top: 1rem;
+        padding: 2rem 3rem;
+        border-radius: 1rem;
+        background-color: $bg-color;
+        p{
+            color: $text;
+            font-family: $font-3;
+            text-transform: uppercase;
+            opacity: 80%;
+            // padding: 0 1rem 1rem;
+            span{
+                padding: .3rem .5rem;
+                background-color: $textDark;
+                border-radius: .2rem;
+                span{
+                   padding-left: .2rem;
+                }
+            }
+        }
+        h1{
+            font-size: 4rem;
+            font-family: $font-3;
+            color: $text;
+        }
+    }
+    .btn-container{
+        display: flex;
+        gap: 1rem;
+        padding: 2rem 0;
+        .btn{
+            height: 8rem;
+            width: 8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            background-color: #0f0f0f;
+            color: $text;
+            font-family: $font-3;
+            border-radius: 1rem;
+            border: 1px solid #0f0f0f;
+            cursor: pointer;
+            transition: all .25s cubic-bezier(0.215, 0.610, 0.355, 1);
+            
+            &:hover{
+                border: 1px solid $color;
+                transform: scale(1.02);
+            }
+            &:active{
+                border: 2px solid #6b6b6b;
+            }
+        }
+    }
+}

@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #1d1d1d;
+}
+
+body {
+  user-select: none;
+  -webkit-user-select: none; /* For Safari */
+  -moz-user-select: none; /* For Firefox */
+  -ms-user-select: none; /* For IE 10+ */
+}
+
+main #name {
+  font-size: 1rem;
+  font-family: "Share Tech", sans-serif;
+  display: block;
+}
+
+main .titel {
+  font-size: 1.5rem;
+  font-family: "Bebas Neue", sans-serif;
+}
+main .progress-bar {
+  height: 0.5rem;
+  width: 100%;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+main .count-of-qustion {
+  display: flex;
+}
+main .right {
+  height: 100%;
+  width: 100%;
+  background-color: #008000;
+  border: none;
+}
+main .wrong {
+  height: 100%;
+  width: 100%;
+  background-color: #a50000;
+  border: none;
+}
+
+#game-paly {
+  padding: 0 3rem;
+}
+#game-paly header {
+  margin-bottom: 2rem;
+}
+#game-paly header nav {
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #f4f2ed;
+}
+#game-paly header nav h2 {
+  font-family: "Outfit", sans-serif;
+}
+#game-paly header nav p {
+  font-size: 1.2rem;
+  font-family: "Bebas Neue", sans-serif;
+}
+#game-paly .qustion-container {
+  margin-top: 1rem;
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  background-color: #121212;
+}
+#game-paly .qustion-container p {
+  color: #f4f2ed;
+  font-family: "Outfit", sans-serif;
+  text-transform: uppercase;
+  opacity: 80%;
+}
+#game-paly .qustion-container p span {
+  padding: 0.3rem 0.5rem;
+  background-color: #1a1a1a;
+  border-radius: 0.2rem;
+}
+#game-paly .qustion-container p span span {
+  padding-left: 0.2rem;
+}
+#game-paly .qustion-container h1 {
+  font-size: 4rem;
+  font-family: "Outfit", sans-serif;
+  color: #f4f2ed;
+}
+#game-paly .btn-container {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+#game-paly .btn-container .btn {
+  height: 8rem;
+  width: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  background-color: #0f0f0f;
+  color: #f4f2ed;
+  font-family: "Outfit", sans-serif;
+  border-radius: 1rem;
+  border: 1px solid #0f0f0f;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+#game-paly .btn-container .btn:hover {
+  border: 1px solid #4169e1;
+  transform: scale(1.02);
+}
+#game-paly .btn-container .btn:active {
+  border: 2px solid #6b6b6b;
+}/*# sourceMappingURL=style.css.map */
