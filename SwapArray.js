@@ -15,6 +15,8 @@ function rainxArray(a) {
   temp = arr[0];
   arr[0] = arr[rn];
   arr[rn] = temp
+
+  return arr;
 }
 
 // let arrry = [5, 0, 0, 0]
