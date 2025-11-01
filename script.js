@@ -95,22 +95,31 @@ function qustion() {
 
     let qustion = `What is ${oponents1} ${oprator[op_chose]} ${oponents2} = ${ans} `
 
-    let arr = [ans, option2, option3, option4];
+    let optionArr = [ans, option2, option3, option4];
     
-    let swapArr = swapRandomElements(arr);
+    console.log(optionArr);
+    
 
     
-    return {qustion,swapArr};
+    return {qustion,optionArr};
 }
 function buttonAddInHtml() {
     let obj = qustion();
-    for (let i = 0; i < obj.swapArr.length; i++) {
-        let btn_container = document.getElementById("btn-container");
-        let btn = document.createElement("div");
-        btn.classList = 'btn';
-        btn.innerText = obj.swapArr[i];
-        btn_container.appendChild(btn)  
-        console.log("hi");
+    // for (let i = 0; i < obj.optionArr.length; i++) {
+    //     let btn_container = document.getElementById("btn-container");
+    //     let btn = document.createElement("div");
+    //     btn.classList = 'btn';
+    //     btn.innerText = obj.optionArr[i];
+    //     btn_container.appendChild(btn);  
+    //     console.log(btn);
+        
+    //      obj.optionArr[i];
+    // }
+
+    for (const i in obj.optionArr) {
+        
+        console.log(obj.optionArr[i]);
+        
         
         
     }
@@ -122,8 +131,9 @@ function main() {
     
     qustions.innerText = obj.qustion;
 
-    buttonAddInHtml()
+    // buttonAddInHtml()
     
+    // console.log(obj.optionArr);
     
 
     
