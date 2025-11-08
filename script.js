@@ -7,7 +7,27 @@
 // name, age
 
 
+// my creation of swap elements
+function swapArray(a) {
+    function indexInd(n) {
+        let j = Math.floor(Math.random() * 3) + 1;
+        return j;
+    }
 
+
+    let arr = a;
+    let rn = indexInd();
+    //   console.log(`index of ${rn} swap array`);
+
+
+
+    let temp;
+    temp = arr[0];
+    arr[0] = arr[rn];
+    arr[rn] = temp
+
+    return arr;
+}
 
 
 function callOpratio(a, b, oprator) {
@@ -35,108 +55,84 @@ function callOpratio(a, b, oprator) {
             break;
     }
 }
-function randomNum(num1, num2, num3, i=0) {
-    num1 = parseInt(Math.random() * i);
-    num2 = parseInt(Math.random() * i);
-    num3 = parseInt(Math.random() * i);
-}
-function swapRandomElements(arr) {
-  if (arr.length < 2) {
-    console.log("Array must have at least two elements to swap.");
-    return arr;
-  }
 
-  // Generate two distinct random indices
-  let index1 = Math.floor(Math.random() * arr.length);
-  let index2 = Math.floor(Math.random() * arr.length);
-
-  // Ensure the indices are different
-  while (index1 === index2) {
-    index2 = Math.floor(Math.random() * arr.length);
-  }
-
-  // Swap the elements using array destructuring
-  [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
-
-  return arr;
-}
 
 
 function qustion() {
-    let oponents1 = parseInt(Math.random() * 10);
-    let oponents2 = parseInt(Math.random() * 10);
-    let op_chose = parseInt(Math.random() * 3);
-    let oprator = ["+", "-", "/", "*"]
+    let qustionEasy = 80;
+    let oponents1 = parseInt(Math.random() * `${qustionEasy}`);
+    let oponents2 = parseInt(Math.random() * `${qustionEasy}`);
+    let op_chose = parseInt(Math.random() * 3); // easy
+    // let op_chose = parseInt(Math.random() * 2); // hard 
+
+
+    let oprator = ["+", "-", "/", "*"] // easy
+    // let oprator = ["*", "+", "-"] // hard
+    let ans = parseInt(`${callOpratio(oponents1, oponents2, oprator[op_chose])}`);
 
     let option2 = null;
     let option3 = null;
     let option4 = null;
-    let i = 1;
-    for (i = 1; i < 11; i++) {
-        i += 2;
-        option2 = parseInt(Math.random() * i);
-        i += 5;
-        option3 = parseInt(Math.random() * i);
-        i -= 2;
-        option4 = parseInt(Math.random() * i);
 
-    }
 
-    let ans = parseInt(`${callOpratio(oponents1, oponents2, oprator[op_chose])}`);
 
-    if (ans === option2) option2 = parseInt(Math.random() * i);
-    if (ans === option3) option3 = parseInt(Math.random() * i);
-    if (ans === option4) option4 = parseInt(Math.random() * i);
+    option2 = parseInt(Math.random() * `${qustionEasy}`);
+    option3 = parseInt(Math.random() * `${qustionEasy}`);
+    option4 = parseInt(Math.random() * `${qustionEasy}`);
 
-   
-    if (option2 != 0 || option3 != 0 || option4 != 0) {
-        randomNum(option2, option3, option4)
-    }
 
-    let qustion = `What is ${oponents1} ${oprator[op_chose]} ${oponents2} = ${ans} `
-
+    // Creating Structure of Qustion
+    let qustion = `What is ${oponents1} ${oprator[op_chose]} ${oponents2} = ? `
     let optionArr = [ans, option2, option3, option4];
-    
+    // console.log(optionArr);
+    console.log(ans);
+
+    // Swapping
+    optionArr = swapArray(optionArr);
     console.log(optionArr);
-    
 
-    
-    return {qustion,optionArr};
-}
-function buttonAddInHtml() {
-    let obj = qustion();
-    // for (let i = 0; i < obj.optionArr.length; i++) {
-    //     let btn_container = document.getElementById("btn-container");
-    //     let btn = document.createElement("div");
-    //     btn.classList = 'btn';
-    //     btn.innerText = obj.optionArr[i];
-    //     btn_container.appendChild(btn);  
-    //     console.log(btn);
-        
-    //      obj.optionArr[i];
-    // }
 
-    for (const i in obj.optionArr) {
-        
-        console.log(obj.optionArr[i]);
-        
-        
-        
-    }
-}
-function main() {
+
+    // Qustion add in DOM
     let qustions = document.getElementById("qustion");
-    
-    let obj = qustion();
-    
-    qustions.innerText = obj.qustion;
+    qustions.innerText = qustion;
 
-    // buttonAddInHtml()
-    
-    // console.log(obj.optionArr);
-    
 
-    
+    // Buttons add in DOM
+    optionArr.forEach((num) => {
+        const btn = document.createElement('button');
+        let btn_container = document.getElementById("btn-container");
+        btn.classList = 'btn';
+        btn.textContent = num;
+        btn.addEventListener('click', () => {
+            if (num === ans) {
+                alert("✅ Correct!");
+            } else {
+                alert(`❌ Wrong! The correct answer was ${ans}.`);
+            }
+        });
+        btn_container.appendChild(btn);
+    });
+
+    return qustion;
+}
+qustion()
+
+
+// function buttonAddDOM() {}
+// buttonAddDOM()
+function main() {
+
+    // set all time bg
+    // setInterval(() => {
+    //     document.body.style.backgroundColor = "#1d1d1d"
+    // }, 1000);
+
+
+
+
+
+
 }
 main()
 
