@@ -1,0 +1,65 @@
+    let qustionNum = 0;
+ 
+    let qustionEasy = 80;
+    let oponents1 = parseInt(Math.random() * `${qustionEasy}`);
+    let oponents2 = parseInt(Math.random() * `${qustionEasy}`);
+    let op_chose = parseInt(Math.random() * 3); // easy
+    // let op_chose = parseInt(Math.random() * 2); // hard 
+
+
+    let oprator = ["+", "-", "/", "*"] // easy
+    // let oprator = ["*", "+", "-"] // hard
+    let ans = parseInt(`${callOpratio(oponents1, oponents2, oprator[op_chose])}`);
+
+    let option2 = null;
+    let option3 = null;
+    let option4 = null;
+
+
+
+    option2 = parseInt(Math.random() * `${qustionEasy}`);
+    option3 = parseInt(Math.random() * `${qustionEasy}`);
+    option4 = parseInt(Math.random() * `${qustionEasy}`);
+
+
+    // Creating Structure of Qustion
+    let qustion = `What is ${oponents1} ${oprator[op_chose]} ${oponents2} = ? `
+     let optionArr = [ans, option2, option3, option4];
+    // console.log(optionArr);
+    console.log(ans);
+
+    // Swapping
+    let optionArrNwe = swapArray(optionArr);
+    console.log(optionArrNwe);
+
+    // Buttons add in DOM
+    optionArrNwe.forEach((num) => {
+        const btn = document.createElement('button');
+        let btn_container = document.getElementById("btn-container");
+        btn.classList = 'btn';
+        btn.textContent = num;
+        btn.addEventListener('click', () => {
+            if (num === ans) {
+                // alert("✅ Correct!");
+                colorAddRightWrong("#3da30082");
+               qustionNum++
+               next()
+                
+            } else {
+                // alert(`❌ Wrong! The correct answer was ${ans}.`);
+                colorAddRightWrong("#ff000052")
+            }
+        });
+        btn_container.appendChild(btn);
+    });
+        return {qustion, optionArrNwe, qustionNum};
+}
+qustion()
+
+
+
+Demo:
+What is 76 - 28 = ? 
+27 48 55 36
+
+chose 48 (correct) -> qustion counter++ > new qustion load (before loade new qustion a progress bar type animation run)

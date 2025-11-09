@@ -12,11 +12,14 @@
 
 <body>
     <main>
+        <div id="next">
+            <div id="bar"></div>
+        </div>
         <section id="game-paly">
             <header>
                 <nav>
                     <h2>Math Reflex</h2>
-                    <p>Total Correct: <span>04</span></p>
+                    <p>Total Correct: <span id="qustion_count">0</span></p>
                 </nav>
             </header>
             <div class="progress-bar count-of-qustion">
@@ -24,21 +27,22 @@
                 <span class="wrong"></span>
             </div>
 
-            <div class="qustion-container">
+            <div id="qustion-container">
                 <p><span>Qustion <span id="qustion_no"> 1</span></span></p>
                 <h1 id="qustion">What is 8 + 5 = ?</h1>
             </div>
 
             <div id="btn-container">
-                <!-- <div class="btn">10</div>
-                <div class="btn">5</div>
-                <div class="btn">13</div>
-                <div class="btn">9</div> -->
+                <div class="btn" id="Button1">10</div>
+                <div class="btn" id="Button2">7</div>
+                <div class="btn" id="Button3">3</div>
+                <div class="btn" id="Button4">69</div>
             </div>
         </section>
+       
     </main>
 
-    <script src="script.js"></script>
+    <script type="module" src="main.js"></script>
 
 </body>
 

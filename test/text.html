@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math Quiz Prototype</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 20px;
+    text-align: center;
+  }
+  #question {
+    font-size: 24px;
+  }
+  #btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background: #1e90ff;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .btn:hover {
+    transform: scale(1.05);
+  }
+  #progress-bar {
+    width: 200px;
+    height: 8px;
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+  }
+  #progress {
+    width: 0%;
+    height: 100%;
+    background: limegreen;
+    transition: width 1s linear;
+  }
+  #start-screen input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    width: 150px;
+  }
+  #start-screen button {
+    margin-top: 10px;
+    background: #1e90ff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div id="start-screen">
+  <h2>🎯 Math Quiz</h2>
+  <p>How many questions do you want to play?</p>
+  <input type="number" id="totalQ" placeholder="e.g. 5" min="1" max="50">
+  <button onclick="startGame()">Start</button>
+</div>
+
+<div id="game" style="display:none;">
+  <div id="status"></div>
+  <div id="question"></div>
+  <div id="btn-container"></div>
+  <div id="progress-bar"><div id="progress"></div></div>
+</div>
+
+<script>
+
+let questionNum = 0;
+let totalQuestions = 0;
+let questionEasy = 80;
+
+function callOpratio(a, b, op) {
+  switch (op) {
+    case '+': return a + b;
+    case '-': return a - b;
+    case '*': return a * b;
+    case '/': return b !== 0 ? parseInt(a / b) : 0;
+  }
+}
+
+function swapArray(arr) {
+  return arr.sort(() => Math.random() - 0.5);
+}
+
+function colorAddRightWrong(color) {
+  document.body.style.backgroundColor = color;
+  setTimeout(() => document.body.style.backgroundColor = "#0f172a", 300);
+}
+
+function next() {
+  const progressBar = document.getElementById("progress-bar");
+  const progress = document.getElementById("progress");
+  progressBar.style.display = "block";
+  progress.style.width = "0%";
+
+  setTimeout(() => progress.style.width = "100%", 50);// clear
+
+  setTimeout(() => {
+    progressBar.style.display = "none";// clear
+    if (questionNum < totalQuestions) question();
+    else endGame();
+  }, 1000);
+}
+
+function question() {
+  document.getElementById("btn-container").innerHTML = ""; // clear
+
+  let o1 = parseInt(Math.random() * questionEasy);
+  let o2 = parseInt(Math.random() * questionEasy);
+
+  let op = ["+", "-", "/", "*"][parseInt(Math.random() * 3)]; // clear
+
+  let ans = parseInt(callOpratio(o1, o2, op)); // clear
+
+
+  let option2 = parseInt(Math.random() * questionEasy);
+  let option3 = parseInt(Math.random() * questionEasy);
+  let option4 = parseInt(Math.random() * questionEasy);
+// clear
+  let q = `What is ${o1} ${op} ${o2} = ?`; // clear
+  
+  document.getElementById("question").textContent = q; // clear
+
+  document.getElementById("status").textContent = `Question ${questionNum + 1} of ${totalQuestions}`; // clear
+
+
+  let optionArr = swapArray([ans, option2, option3, option4]); // clear
+
+
+  optionArr.forEach(num => {
+    const btn = document.createElement("button");
+    btn.classList = "btn";
+    btn.textContent = num;// clear
+    btn.onclick = () => {
+      if (num === ans) {
+        colorAddRightWrong("#3da30082");// clear
+        questionNum++;// clear
+        next();
+      } else {
+        colorAddRightWrong("#ff000052");
+      }
+    };
+    document.getElementById("btn-container").appendChild(btn);// clear
+  });
+}
+
+function startGame() {
+  const num = parseInt(document.getElementById("totalQ").value);
+  if (!num || num <= 0) {
+    alert("Please enter a valid number of questions.");
+    return;
+  }
+  totalQuestions = num;
+  document.getElementById("start-screen").style.display = "none";
+  document.getElementById("game").style.display = "block";
+  questionNum = 0;
+  question();
+}
+
+function endGame() {
+  document.getElementById("game").innerHTML = `
+    <h2>🏁 Game Over!</h2>
+    <p>You completed ${totalQuestions} questions!</p>
+    <button onclick="location.reload()">Play Again</button>
+  `;
+}
+</script>
+</body>
+</html>
