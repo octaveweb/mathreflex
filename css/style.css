@@ -9,7 +9,8 @@
 }
 
 html,
-body {
+body,
+main {
   height: 100%;
   width: 100%;
   background-color: #1d1d1d;
@@ -40,25 +41,16 @@ main #next {
 }
 main #next #bar {
   height: 2px;
-  width: 100%;
+  width: 0%;
   background-color: #008000;
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
-  animation: bar 2s cubic-bezier(0.19, 1, 0.22, 1) both;
 }
-@keyframes bar {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
-}
-main .titel {
+main #next .titel {
   font-size: 1.5rem;
   font-family: "Bebas Neue", sans-serif;
 }
-main .progress-bar {
+main #next .progress-bar {
   height: 0.5rem;
   width: 100%;
   background-color: transparent;
@@ -66,20 +58,70 @@ main .progress-bar {
   border-radius: 1rem;
   overflow: hidden;
 }
-main .count-of-qustion {
+main #next .count-of-qustion {
   display: flex;
 }
-main .right {
+main #next .right {
   height: 100%;
   width: 100%;
   background-color: #008000;
   border: none;
 }
-main .wrong {
+main #next .wrong {
   height: 100%;
   width: 100%;
   background-color: #a50000;
   border: none;
+}
+main #next #message {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  overflow: hidden;
+}
+main #next #message .con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.51rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: "Outfit", sans-serif;
+  text-transform: uppercase;
+  animation: up_fade 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+@keyframes up_fade {
+  0% {
+    transform: translateY(5rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+main #next #message .loader-massage {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid blue;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 #game-paly {
@@ -150,10 +192,90 @@ main .wrong {
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-#btn-container .btn:hover {
-  border: 1px solid #4169e1;
-  transform: scale(1.02);
-}
-#btn-container .btn:active {
-  border: 2px solid #6b6b6b;
+
+@media only screen and (min-width: 0px) and (max-width: 600px) {
+  main {
+    padding: 0 1rem;
+  }
+  main #game-paly {
+    padding: 0rem;
+  }
+  main #game-paly header {
+    margin: 1.2rem 0;
+  }
+  main #game-paly header nav {
+    padding: 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #f4f2ed;
+  }
+  main #game-paly header nav h2 {
+    font-family: "Outfit", sans-serif;
+    font-size: 1.2rem;
+  }
+  main #game-paly header nav p {
+    font-size: 0.7rem;
+    font-family: "Bebas Neue", sans-serif;
+  }
+  main #qustion-container {
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    background-color: #121212;
+    box-shadow: inset 0px 0px 23px 4px transparent;
+  }
+  main #qustion-container p {
+    color: #f4f2ed;
+    font-family: "Outfit", sans-serif;
+    text-transform: uppercase;
+    opacity: 80%;
+    font-size: 0.8rem;
+    padding-bottom: 1rem;
+  }
+  main #qustion-container p span {
+    padding: 0.3rem 0.5rem;
+    background-color: #1a1a1a;
+    border-radius: 0.2rem;
+  }
+  main #qustion-container p span span {
+    padding-left: 0.2rem;
+  }
+  main #qustion-container h1 {
+    font-size: 3rem;
+    font-family: "Outfit", sans-serif;
+    color: #f4f2ed;
+  }
+  main #btn-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem 0;
+    margin: 0 auto;
+  }
+  main #btn-container .btn {
+    height: 7rem;
+    width: 8rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1.5rem;
+    background-color: #0f0f0f;
+    color: #f4f2ed;
+    font-family: "Outfit", sans-serif;
+    border-radius: 1rem;
+    border: 1px solid #0f0f0f;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  main #btn-container .btn:hover {
+    border: 1px solid #4169e1;
+    transform: scale(1.02);
+  }
+  main #btn-container .btn:active {
+    border: 2px solid #6b6b6b;
+  }
 }/*# sourceMappingURL=style.css.map */
