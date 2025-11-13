@@ -65,129 +65,132 @@ main {
             background-color: #008000;
             border-top-right-radius: 2rem;
             border-bottom-right-radius: 2rem;
-           
+
+        }
+
+        .titel {
+            font-size: 1.5rem;
+            font-family: $font-2;
+        }
+
+        .progress-bar {
+            height: .5rem;
+            width: 100%;
+            background-color: transparent;
+            padding: 0;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .count-of-qustion {
+            display: flex;
+
+
+        }
+
+        .right {
+            height: 100%;
+            width: 100%;
+            background-color: #008000;
+            border: none
+        }
+
+        .wrong {
+            height: 100%;
+            width: 100%;
+            background-color: #a50000;
+            border: none;
+        }
+
+
+
     }
-    
-    .titel {
-        font-size: 1.5rem;
-        font-family: $font-2;
-    }
 
-    .progress-bar {
-        height: .5rem;
-        width: 100%;
-        background-color: transparent;
-        padding: 0;
-        border-radius: 1rem;
-        overflow: hidden;
-    }
+}
 
-    .count-of-qustion {
-        display: flex;
+.message {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 2rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    overflow: hidden;
+    // background-color: #008000;
 
-
-    }
-
-    .right {
-        height: 100%;
-        width: 100%;
-        background-color: #008000;
-        border: none
-    }
-
-    .wrong {
-        height: 100%;
-        width: 100%;
-        background-color: #a50000;
-        border: none;
-    }
-
-    #message {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        padding: 2rem 0;
-        width: 100%;
+    .con {
         display: flex;
         justify-content: center;
-        align-self: center;
-        overflow: hidden;
-        // background-color: #008000;
+        align-items: center;
+        gap: .51rem;
+        padding: .8rem 1.5rem;
+        background-color: #fff;
+        border-radius: .5rem;
+        font-size: 1rem;
+        font-family: $font-3;
+        text-transform: uppercase;
 
-        .con {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: .51rem;
-            padding: .8rem 1.5rem;
-            background-color: #fff;
-            border-radius: .5rem;
-            font-size: 1rem;
-            font-family: $font-3;
-            text-transform: uppercase;
+        animation: up_fade 0.8s cubic-bezier(0.215, 0.610, 0.355, 1) both;
 
-            animation: up_fade 0.8s cubic-bezier(0.215, 0.610, 0.355, 1) both;
-
-            @keyframes up_fade {
-                0% {
-                    transform: translateY(5rem);
-                }
-
-                100% {
-                    transform: translateY(0);
-                }
-            }
-
-        }
-
-        .loader-massage {
-            width: 1rem;
-            height: 1rem;
-            border: 2px solid blue;
-            border-bottom-color: transparent;
-            border-radius: 50%;
-            display: inline-block;
-            box-sizing: border-box;
-            animation: rotation 1s linear infinite;
-        }
-
-        @keyframes rotation {
+        @keyframes up_fade {
             0% {
-                transform: rotate(0deg);
+                transform: translateY(5rem);
             }
 
             100% {
-                transform: rotate(360deg);
+                transform: translateY(0);
             }
         }
+
     }
 
+    .loader-massage {
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid blue;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
 }
 
+header {
+    margin-bottom: 2rem;
+
+    nav {
+        padding: 3rem 2rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $text;
+
+        h2 {
+            font-family: $font-3;
+        }
+
+        p {
+            font-size: 1.2rem;
+            font-family: $font-2;
+        }
+    }
 }
+
 #game-paly {
     padding: 0 3rem;
-
-    header {
-        margin-bottom: 2rem;
-
-        nav {
-            padding: 3rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: $text;
-
-            h2 {
-                font-family: $font-3;
-            }
-
-            p {
-                font-size: 1.2rem;
-                font-family: $font-2;
-            }
-        }
-    }
 
     #qustion-container {
         margin-top: 1rem;
@@ -222,6 +225,100 @@ main {
     }
 }
 
+#gameOver {
+    height: 100vh;
+    width: 100%;
+    // background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $font-2;
+    
+    .gritBox {
+        border-radius: 16px;
+        padding: 2rem 2rem 1.5rem;
+        border: 1px solid #ffffff0f;
+        backdrop-filter: blur(10px) saturate(120%);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 5rem;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+
+       
+
+        h3 {
+            margin-bottom: .75rem;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            color: #9aa7bf;
+        }
+    
+        p {
+            margin: 0;
+            color: #9aa7bf;
+            font-size: 1rem;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #restartGame {
+            appearance: none;
+            border: 0;
+            background-color: transparent;
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 0px 18px 1px #1e90ff24;
+            transition: transform 0.18s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.18s;
+            align-self: center;
+            justify-self: end;
+            border: 1px solid #1e90ff2e;
+
+            &:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 30px #1e90ff2e;
+            }
+
+            &:active {
+                transform: translateY(1px) scale(0.997);
+            }
+        }
+
+        .scoreBadge {
+            display: inline-grid;
+            grid-auto-flow: column;
+            gap: 8px;
+            align-items: center;
+            padding: 6px 10px;
+            background: linear-gradient(180deg, #ffffff05, #ffffff03);
+            border-radius: 999px;
+            border: 1px solid #ffffff08;
+            font-weight: 700;
+            color: #1e90ff;
+            margin-left: 6px;
+
+            .tinyDot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: conic-gradient(from 120deg, #ffffffcc, #ffffff40);
+                box-shadow: 0 3px 8px #02061799, inset 0 -2px 6px #ffffff05;
+            }
+        }
+
+     
+    }
+}
+
 #btn-container {
     display: flex;
     gap: 1rem;
@@ -243,15 +340,16 @@ main {
         cursor: pointer;
         transition: all .25s cubic-bezier(0.215, 0.610, 0.355, 1);
 
-       
+
     }
-   
+
 
 }
 
 @media only screen and (min-width: 0px) and (max-width: 600px) {
     main {
         padding: 0 1rem;
+
         #game-paly {
             padding: 0rem;
 
@@ -284,70 +382,73 @@ main {
             border-radius: 1rem;
             background-color: $bg-color;
             box-shadow: inset 0px 0px 23px 4px transparent;
-        
 
-        p {
-            color: $text;
-            font-family: $font-3;
-            text-transform: uppercase;
-            opacity: 80%;
-            font-size: .8rem;
-            // padding: 0 1rem 1rem;
-            padding-bottom: 1rem;
-            span {
-                padding: .3rem .5rem;
-                background-color: $textDark;
-                border-radius: .2rem;
+
+            p {
+                color: $text;
+                font-family: $font-3;
+                text-transform: uppercase;
+                opacity: 80%;
+                font-size: .8rem;
+                // padding: 0 1rem 1rem;
+                padding-bottom: 1rem;
 
                 span {
-                    padding-left: .2rem;
+                    padding: .3rem .5rem;
+                    background-color: $textDark;
+                    border-radius: .2rem;
+
+                    span {
+                        padding-left: .2rem;
+                    }
                 }
             }
+
+            h1 {
+                font-size: 3rem;
+                font-family: $font-3;
+                color: $text;
+            }
         }
 
-        h1 {
-            font-size: 3rem;
-            font-family: $font-3;
-            color: $text;
-        }
-    }
-
-    #btn-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-        padding: 2rem 0;
-        margin: 0 auto;
-        .btn {
-            height: 7rem;
-            width: 8rem;
-            padding: 1rem;
+        #btn-container {
             display: flex;
             justify-content: center;
-            align-items: center;
             flex-wrap: wrap;
-            font-size: 1.5rem;
-            background-color: #0f0f0f;
-            color: $text;
-            font-family: $font-3;
-            border-radius: 1rem;
-            border: 1px solid #0f0f0f;
-            cursor: pointer;
-            transition: all .25s cubic-bezier(0.215, 0.610, 0.355, 1);
+            gap: 1rem;
+            padding: 2rem 0;
+            margin: 0 auto;
 
-            &:hover {
-                border: 1px solid $color;
-                transform: scale(1.02);
+            .btn {
+                height: 7rem;
+                width: 8rem;
+                padding: 1rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                font-size: 1.5rem;
+                background-color: #0f0f0f;
+                color: $text;
+                font-family: $font-3;
+                border-radius: 1rem;
+                // border: 1px solid #0f0f0f;
+                cursor: pointer;
+                transition: all .25s cubic-bezier(0.215, 0.610, 0.355, 1);
+
+                &:hover {
+                    border: 1px solid $color;
+                    transform: scale(1.02);
+                }
+
+                &:active {
+                    border: 2px solid #6b6b6b;
+                }
             }
 
-            &:active {
-                border: 2px solid #6b6b6b;
-            }
+
         }
-
-
+       
+        
     }
-
-}
 }
