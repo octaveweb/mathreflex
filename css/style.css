@@ -232,12 +232,12 @@ header nav p {
   text-transform: uppercase;
   opacity: 80%;
 }
-#game-paly p span {
+#game-paly p p > span {
   padding: 0.3rem 0.5rem;
   background-color: #2b2929;
   border-radius: 0.2rem;
 }
-#game-paly p span span {
+#game-paly p p > span span {
   padding-left: 0.2rem;
 }
 #game-paly h1 {
@@ -358,6 +358,9 @@ header nav p {
   main #game-paly {
     padding: 0rem;
   }
+  main #game-paly #qustion-container {
+    padding: 2rem;
+  }
   main #game-paly header {
     margin: 1.2rem 0;
   }
@@ -375,6 +378,7 @@ header nav p {
   main #game-paly header nav p {
     font-size: 0.7rem;
     font-family: "Bebas Neue", sans-serif;
+    width: 50%;
   }
   main #qustion-container {
     margin-top: 1rem;
@@ -405,16 +409,17 @@ header nav p {
     color: #f4f2ed;
   }
   main #btn-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 1rem;
     padding: 2rem 0;
     margin: 0 auto;
   }
   main #btn-container .btn {
     height: 7rem;
-    width: 8rem;
+    width: 100%;
     padding: 1rem;
     display: flex;
     justify-content: center;
@@ -484,5 +489,11 @@ header nav p {
     left: -42%;
     filter: blur(50px);
     transform: translate(-50%, -50%);
+  }
+  main #gameOver .gritBox {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.2fr;
+    gap: 0;
   }
 }/*# sourceMappingURL=style.css.map */

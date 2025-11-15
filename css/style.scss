@@ -269,7 +269,7 @@ header {
         opacity: 80%;
 
         // padding: 0 1rem 1rem;
-        span {
+        p>span {
             padding: .3rem .5rem;
             background-color: #2b2929;
             border-radius: .2rem;
@@ -414,7 +414,9 @@ header {
 
         #game-paly {
             padding: 0rem;
-
+#qustion-container {
+    padding: 2rem;
+}
             header {
                 margin: 1.2rem 0;
 
@@ -433,6 +435,7 @@ header {
                     p {
                         font-size: .7rem;
                         font-family: $font-2;
+                        width: 50%;
                     }
                 }
             }
@@ -474,16 +477,17 @@ header {
         }
 
         #btn-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(2,1fr);
             gap: 1rem;
             padding: 2rem 0;
             margin: 0 auto;
-
+            
             .btn {
                 height: 7rem;
-                width: 8rem;
+                width: 100%;
                 padding: 1rem;
                 display: flex;
                 justify-content: center;
@@ -564,5 +568,14 @@ header {
                 transform: translate(-50%, -50%);
             }
         }
+        #gameOver {
+            .gritBox{
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr .2fr;
+                gap: 0;
+            }
+        }
+      
     }
 }
