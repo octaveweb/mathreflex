@@ -38,29 +38,33 @@ function swapArray(a) {
 }
 function qustion() {
 
-    let qustionNum = 0;
-    let qustionEasy = 80;
-
-
-
-    let op1 = parseInt(Math.random() * `${qustionEasy}`);
-    let op2 = parseInt(Math.random() * `${qustionEasy}`);
-
-    let op_chose = parseInt(Math.random() * 3); // easy
-
-    // let op_chose = parseInt(Math.random() * 2); // hard 
+    let qustionEasy = 40;
 
 
     let oprator = ["+", "-", "/", "*"] // easy
     // let oprator = ["*", "+", "-"] // hard
 
+    let op_chose = parseInt(Math.random() * 3); // easy
+    // let op_chose = parseInt(Math.random() * 2); // hard 
 
-    let ans = callOpratio(op1, op2, oprator[op_chose]);
+
+    let op1 = parseInt(Math.random() * `${qustionEasy}`);
+    let op2 = parseInt(Math.random() * `${qustionEasy}`);
+
+    if (op1 < op2 && oprator[op_chose] === "/" ) {
+        op1 = parseInt(Math.random() * `${qustionEasy}`);
+        op2 = parseInt(Math.random() * `${qustionEasy}`);
+
+    }
+
+
+
+
+
 
     let option2 = null;
     let option3 = null;
     let option4 = null;
-
 
 
     option2 = parseInt(Math.random() * `${qustionEasy}`);
@@ -68,15 +72,41 @@ function qustion() {
     option4 = parseInt(Math.random() * `${qustionEasy}`);
 
 
+    if (oprator[op_chose] === "/" || oprator[op_chose] === "*") {
+        if (option2 > option3) {
+            option2 = parseInt(Math.random() * `${qustionEasy}`);
+        }
+        if (option3 < op1) {
+            option3 = parseInt(Math.random() * `${qustionEasy}`);
+        }
+        if (op1 < option2) {
+            option4 = parseInt(Math.random() * `${qustionEasy}`);
+        }
+        option2 = callOpratio(option2, option3, oprator[op_chose]);
+        option3 = callOpratio(option3, op1, oprator[op_chose]);
+        option4 = callOpratio(op1, option2, oprator[op_chose]);
+    }
+    
+    let ans = callOpratio(op1, op2, oprator[op_chose]);
+    
+    if (option2 === ans) {
+        option2 = parseInt(Math.random() * `${qustionEasy}`);
+    }else if(option3 === ans){
+        option3 = parseInt(Math.random() * `${qustionEasy}`);
+    }else if(option4 === ans){
+        option4 = parseInt(Math.random() * `${qustionEasy}`);
+    }
+
+
     // Creating Structure of Qustion
     let qustions = `What is ${op1} ${oprator[op_chose]} ${op2} = ? `;
 
-    
+
     let optionArr = [ans, option2, option3, option4];
 
     // Swapping
     let optionArrNwe = swapArray(optionArr);
-   
+
 
 
 
@@ -97,7 +127,7 @@ function qustion() {
     //             colorAddRightWrong("#3da30082");
     //            qustionNum++
     //            next()
-                
+
     //         } else {
     //             // alert(`❌ Wrong! The correct answer was ${ans}.`);
     //             colorAddRightWrong("#ff000052")
@@ -106,7 +136,7 @@ function qustion() {
     //     btn_container.appendChild(btn);
     // });
 
-    return {qustions,ans, optionArrNwe};
+    return { qustions, ans, optionArrNwe };
 }
 
 export default qustion;

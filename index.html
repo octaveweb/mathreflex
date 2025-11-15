@@ -12,44 +12,67 @@
 
 <body>
     <main>
+
         <div id="next">
             <div id="bar"></div>
         </div>
 
         <section id="game-start">
-            
+
         </section>
         <section id="game-paly">
             <header>
                 <nav>
                     <h2>Math Reflex</h2>
-                    <p>Total Correct: <span id="totalCorect">0</span></p>
+                    <p><span>Total Qustion: <span id="totalQustion">0</span></span>
+                    <span>Total Correct: <span id="totalCorect">0</span></span></p>
                 </nav>
             </header>
-            <div class="progress-bar count-of-qustion">
-                <span class="right"></span>
-                <span class="wrong"></span>
+            <div id="game">
+                <div class="progress-bar" id="progress-bar">
+
+                </div>
+
+                <div id="qustion-container">
+                    <p><span>Qustion <span id="qustion_no"> 1</span></span></p>
+                    <h1 id="qustion">What is 8 + 5 = ?</h1>
+                </div>
+
+                <div id="btn-container">
+                    <div class="btn" id="Button1">10</div>
+                    <div class="btn" id="Button2">7</div>
+                    <div class="btn" id="Button3">3</div>
+                    <div class="btn" id="Button4">69</div>
+                </div>
             </div>
 
-            <div id="qustion-container">
-                <p><span>Qustion <span id="qustion_no"> 1</span></span></p>
-                <h1 id="qustion">What is 8 + 5 = ?</h1>
-            </div>
-
-            <div id="btn-container">
-                <div class="btn" id="Button1">10</div>
-                <div class="btn" id="Button2">7</div>
-                <div class="btn" id="Button3">3</div>
-                <div class="btn" id="Button4">69</div>
+            <div class="welcomeSection">
+                <input type="text" placeholder="Enter your name" id="inputName" required>
+                <input type="text" placeholder="How many qustion?" id="qustionNumber" required>
+                <span class="g1"></span>
+                <button id="startGame" type="submit">Start</button>
             </div>
         </section>
-        <section id="gameOver"></section>
+        <section id="gameOver">
+               <div class="gritBox">
+                <div class="content">
+                    <h3>Wonderful, <br> <div class="nameUser"></div></h3>
+                    
+                    <p>You get <span class="scoreBadge">
+                        <span class="tinyDot" aria-hidden="true"></span>
+                        
+                        <span class="result"></span>
+                    </span>
+                    </p>
+                </div>
+                <button id="restartGame" type="button">Replay</button>
+            </div>
+        </section>
 
-        <div class="message">
+        <div class="message up">
             <div class="con">
                 <p id="messageData">Welcome</p>
                 <span class="loader-massage"></span>
-
             </div>
         </div>
     </main>

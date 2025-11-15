@@ -2,7 +2,32 @@ import qustion from './js/qustion.model.js';
 
 let qsNum = 1;
 let currectAns = 0;
-let totalQustion = 1;
+let totalQustion = 2;
+let inp = document.querySelector("#inputName");
+let nameValue = "";
+
+inp.addEventListener("input", e => {
+    nameValue = e.target.value;
+    localStorage.setItem("UserName", nameValue);
+    // console.log(localStorage.getItem("UserName"));
+});
+inp.value = localStorage.getItem("UserName")
+
+let inp2 = document.querySelector("#qustionNumber");
+  document.querySelector("#totalQustion").innerText = totalQustion
+inp2.addEventListener("input", e => {
+    totalQustion = e.target.value;
+    localStorage.setItem("TotalQustion", totalQustion);
+    // console.log(localStorage.getItem("TotalQustion"));
+    document.querySelector("#totalQustion").innerText = localStorage.getItem("TotalQustion")
+});
+inp2.value = localStorage.getItem("TotalQustion")
+setTimeout(() => {
+    document.querySelector(".message").classList.remove("up");
+    document.querySelector(".message").classList.add("down");
+}, 3000);
+
+
 function colorAddRightWrong(id, backcolor, bordercolor) {
     const id_target = document.getElementById(`${id}`);
     id_target.style.boxShadow = `inset 0px 0px 23px 4px ${backcolor}`;
@@ -14,8 +39,11 @@ function colorAddRightWrong(id, backcolor, bordercolor) {
     }, 1000);
 }
 
-function insertInDom(parent, content) {
+function insertInDom(parent, content, a = 1) {
     document.getElementById(parent).innerText = content;
+    if (a) {
+        document.getElementById(parent).display = "none"
+    }
 }
 
 function countQustion() {
@@ -65,7 +93,18 @@ function buttonAllDOM(arr, ans) {
         };
     });
 }
+function addInProgres(a) {
+    let progress = document.querySelector("#progress-bar");
+    let div = document.createElement("div");
+    if (a) {
+        div.classList = "right";
+        progress.appendChild(div);
+    } else {
+        div.classList = "wrong";
+        progress.appendChild(div);
 
+    }
+}
 function next(val) {
     let next = document.getElementById("next");
     next.style.zIndex = "888";
@@ -77,6 +116,7 @@ function next(val) {
             countCorrectAns();
             insertInDom("totalCorect", currectAns);
             countQustion();
+            addInProgres(1)
             insertInDom("qustion", qustions);
             buttonAllDOM(optionArrNwe, ans);
             next.style.zIndex = "-1";
@@ -86,6 +126,7 @@ function next(val) {
     } else {
         setTimeout(() => {
             countQustion();
+            addInProgres(0)
             insertInDom("totalCorect", currectAns);
             insertInDom("qustion", qustions);
             buttonAllDOM(optionArrNwe, ans);
@@ -100,25 +141,17 @@ function endgame(totalQustions) {
 
     let gameSection = document.querySelector("#game-paly")
     let gameOver = document.querySelector("#gameOver")
+    let result = `${currectAns}/${totalQustion}`
 
- 
 
     if (qsNum > totalQustions) {
-           gameSection.style.display = "none";
-    gameOver.style.display = "flex";
-    document.querySelector(".message").style.display = "none"
-        gameOver.innerHTML = `
-          <div class="gritBox">
-                <div class="content">
-                    <h3>Wonderful, <br> #name</h3>
-                    
-                    <p>You get <span class="scoreBadge"><span class="tinyDot" aria-hidden="true"></span>${currectAns}/${totalQustion}</span></p>
-                </div>
-                <button id="restartGame" type="button">Replay</button>
-            </div>
-        `;
-
+        gameSection.style.display = "none";
+        gameOver.style.display = "flex";
+        document.querySelector(".message").style.display = "none"
+        document.querySelector(".nameUser").innerHTML = localStorage.getItem("UserName");
         
+        document.querySelector(".result").innerHTML = result
+
     }
 }
 
@@ -129,6 +162,35 @@ function main() {
     insertInDom("qustion", qustions);
     buttonAllDOM(optionArrNwe, ans);
     insertInDom("messageData", "Welcome");
+
+    let start = document.querySelector("#startGame");
+    document.querySelector("nav p").style.display = "none"
+    document.querySelector("#game").style.display = "none"
+
+
+    let next = document.getElementById("next");
+
+
+    start.addEventListener("click", () => {
+        next.style.zIndex = "888";
+        setTimeout(() => {
+            document.querySelector(".welcomeSection").style.display = "none";
+            document.querySelector(".message").style.display = "none";
+
+            next.style.zIndex = "-1";
+            document.querySelector("nav p").style.display = "flex"
+            document.querySelector("#game").style.display = "grid";
+
+        }, 1000);
+    })
+let reset = document.querySelector("#restartGame");
+
+    reset.addEventListener("click", ()=>{
+                location.reload();
+                
+    })
+
+
 }
 
 main();
