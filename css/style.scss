@@ -570,10 +570,11 @@ header {
         }
         #gameOver {
             .gritBox{
+                    padding: 2rem 1.2rem 1rem;
                 display: grid;
                 grid-template-columns: 1fr;
                 grid-template-rows: 1fr .2fr;
-                gap: 0;
+                gap: 1.2rem;
             }
         }
       

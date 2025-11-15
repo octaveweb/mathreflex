@@ -491,9 +491,10 @@ header nav p {
     transform: translate(-50%, -50%);
   }
   main #gameOver .gritBox {
+    padding: 2rem 1.2rem 1rem;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 0.2fr;
-    gap: 0;
+    gap: 1.2rem;
   }
 }/*# sourceMappingURL=style.css.map */
